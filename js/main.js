@@ -674,5 +674,4 @@ var animateReveal = function() {
 		});
 	}
 
-}
-
+} 
