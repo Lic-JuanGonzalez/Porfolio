@@ -94,6 +94,19 @@
 
       <div class="unslate_co--section" id="portfolio-section">
         <div class="container">
+
+          <h2 class="mr-auto heading-h2"><span class="gsap-reveal">Portfolio</span></h2>
+          <a href="#" class="text-white js-filter d-inline-block d-lg-none">Filter</a>
+          
+          <div class="filter-wrap">
+            <div class="filter ml-auto" id="filters">
+              <a href="#" class="active" data-filter="*">All</a>
+              <a href="#" data-filter=".html">HTML</a>
+              <a href="#" data-filter=".css">CSS</a>
+              <a href="#" data-filter=".illustration">Illustration</a>
+              <a href="#" data-filter=".packaging">Packaging</a>
+            </div>
+          </div>
       
           <div class="relative">
             <div class="loader-portfolio-wrap">
@@ -106,7 +119,7 @@
       
             <div id="posts" class="row gutter-isotope-item">
       
-              <div class="item python css col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+              <div class="item html css col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
                 <a href="pages/portfolio-single-1.html" class="portfolio-item isotope-item gsap-reveal-img" data-id="1">
                   <div class="overlay">
                     <span class="wrap-icon icon-link2"></span>
@@ -152,9 +165,10 @@
             <!-- Fin imagen de perfil -->
             
             <div class="col-lg-4 pr-lg-5">
-              <h3 class="mb-4 heading-h3"><span class="gsap-reveal">We can make it together</span></h3>
-              <p class="lead gsap-reveal">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there <a href="#">live the blind</a> texts. </p>
-              <p class="mb-4 gsap-reveal">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+              <h3 class="mb-4 heading-h3"><span class="gsap-reveal">Apasionado y Orientado a Resultados</span></h3>
+              <p class="lead gsap-reveal">Soy un desarrollador de software junior con experiencia sólida en JAVA, PYTHON y MYSQL. Me destaco por mi constante actualización en tecnologías 
+                emergentes y mi compromiso con la <a href="#">calidad del software a desarrollar.</a></p>
+              <p class="mb-4 gsap-reveal">Tengo la habilidad para integrarme eficazmente en equipos de trabajo utilizando metodologías ágiles, especialmente en entornos <a href="#">SCRUM</a></p>
               <p class="gsap-reveal"><a href="https://drive.google.com/uc?export=download&id=1pR5gQQPoIs5OTkXL5ysJp7_tNcE7XeoA" class="btn btn-outline-pill btn-custom-light">Download my CV</a></p>
             </div>
           </div>
@@ -267,7 +281,7 @@
                 </div>
                 <div class="form-group row gsap-reveal">
                     <div class="col-md-12 d-flex align-items-center">
-                      <input type="submit" class="btn btn-outline-pill btn-custom-light mr-3" value="Enviar Mensaje">
+                      <input type="submit" class="btn btn-outline-pill btn-custom-light mr-3" value="Send Message">
                       <span class="submitting"></span>
                     </div>
                   </div>
@@ -336,6 +350,17 @@
 
     <script src="js/scripts-dist.js"></script>
     <script src="js/main.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "M4R44Uu31tNO-8sTR",
+        });
+      })();
+    </script>
+</script>
 
   </body>
 </html>
