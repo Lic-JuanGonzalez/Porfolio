@@ -537,7 +537,6 @@ footer {
 @media (max-width: 768px) {
   .section    { padding: 5rem 0; }
   #hero       { padding: 8rem 1.5rem 4rem; }
-  .projects-grid { grid-template-columns: 1fr; }
   .contact-card  { padding: 2rem 1.5rem; }
   .footer-inner  { flex-direction: column; text-align: center; }
   .nav-links  { gap: 1.5rem; }
