@@ -10,6 +10,6 @@
       'Nombre: ' + name + '\nEmail: ' + email + '\n\n' + msg
     );
     window.location.href =
-      'mailto:juaniiiii1025@gmail.com?subject=' + subject + '&body=' + body;
+      'mailto:lic.gonzalezjuan23@gmail.com?subject=' + subject + '&body=' + body;
   });
 }();
