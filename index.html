@@ -1,334 +1,881 @@
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html lang="es">
 <head>
-  <title>Juan Gonzalez — Back-End Developer</title>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
-  <meta content="" name="description" />
-  <meta content="html, css, javascript, jquery" name="keywords" />
-  <meta content="" name="author" />
-  <link href="css/vendor/icomoon/style.css" rel="stylesheet" />
-  <link href="css/vendor/owl.carousel.min.css" rel="stylesheet" />
-  <link href="css/vendor/animate.min.css" rel="stylesheet" />
-  <link href="css/vendor/aos.css" rel="stylesheet" />
-  <link href="css/vendor/bootstrap.min.css" rel="stylesheet" />
-  <link href="css/vendor/jquery.fancybox.min.css" rel="stylesheet" />
-  <link href="images/logo.ico" rel="icon" type="image/x-icon" />
-  <!-- Theme Style -->
-  <link href="css/style.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Juan González — Team Leader & Back-End Developer. Java · Python · Sistemas Distribuidos." />
+  <title>Juan González — Back-End Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+    /* =============================================
+       RESET & VARIABLES
+       ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #0d0a08;
+      --amber:  #C97B2F;
+      --sand:   #D4A96A;
+      --cream:  #F0E6D3;
+      --terra:  #A0522D;
+      --gold:   #E8C078;
+      --muted:  rgba(240, 230, 210, 0.45);
+
+      --glass-bg:     rgba(240, 220, 180, 0.06);
+      --glass-border: rgba(210, 170, 100, 0.15);
+      --glass-shadow: 0 8px 32px rgba(180, 100, 30, 0.12),
+                      inset 0 1px 0 rgba(255, 220, 150, 0.10);
+
+      --font-d: 'Cormorant Garamond', Georgia, serif;
+      --font-b: 'DM Sans', system-ui, sans-serif;
+      --max-w:  1100px;
+    }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: var(--font-b);
+      background: var(--bg);
+      color: var(--cream);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* =============================================
+       CANVAS BACKGROUND
+       ============================================= */
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(70px);
+      opacity: 0.7;
+    }
+
+    /* =============================================
+       LAYOUT
+       ============================================= */
+    #root      { position: relative; z-index: 1; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
+
+    /* =============================================
+       GLASS CARD
+       ============================================= */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Shine sweep on hover */
+    .glass::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -75%;
+      width: 50%; height: 100%;
+      background: linear-gradient(
+        90deg, transparent,
+        rgba(255, 210, 130, 0.07),
+        transparent
+      );
+      transform: skewX(-15deg);
+      transition: left 0.65s ease;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .glass:hover::before { left: 140%; }
+
+    /* =============================================
+       NAV
+       ============================================= */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.4rem 2rem;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease,
+                  -webkit-backdrop-filter 0.4s ease, border-color 0.4s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(13, 10, 8, 0.65);
+      backdrop-filter: blur(22px) saturate(140%);
+      -webkit-backdrop-filter: blur(22px) saturate(140%);
+      border-bottom: 1px solid rgba(210, 170, 100, 0.1);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-d);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-logo span { color: var(--amber); }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+    .nav-link {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--sand);
+      text-decoration: none;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 3px;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%; right: 50%;
+      height: 1px;
+      background: var(--gold);
+      transition: left 0.3s ease, right 0.3s ease;
+    }
+
+    .nav-link:hover             { color: var(--cream); }
+    .nav-link:hover::after      { left: 0; right: 0; }
+
+    /* =============================================
+       HERO
+       ============================================= */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 9rem 2rem 5rem;
+    }
+
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; width: 100%; }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: fade-up 0.7s ease 0.15s forwards;
+    }
+
+    .hero-name {
+      font-family: var(--font-d);
+      font-size: clamp(3.8rem, 9.5vw, 8.5rem);
+      font-weight: 600;
+      line-height: 1.0;
+      color: var(--cream);
+      margin-bottom: 1.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-letter {
+      display: inline-block;
+      opacity: 0;
+      animation: letter-in 0.55s ease forwards;
+    }
+
+    .hero-tagline {
+      font-size: clamp(0.95rem, 2.1vw, 1.2rem);
+      font-weight: 300;
+      color: var(--sand);
+      max-width: 500px;
+      margin-bottom: 3rem;
+      line-height: 1.85;
+      opacity: 0;
+      animation: fade-up 0.7s ease 1.3s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fade-up 0.7s ease 1.6s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2.1rem;
+      border: 1px solid rgba(232, 192, 120, 0.45);
+      border-radius: 50px;
+      color: var(--gold);
+      font-family: var(--font-b);
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: rgba(232, 192, 120, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: background 0.3s ease, border-color 0.3s ease,
+                  color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: rgba(232, 192, 120, 0.13);
+      border-color: rgba(232, 192, 120, 0.75);
+      color: var(--cream);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(232, 192, 120, 0.14);
+    }
+
+    .btn-ghost {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(240, 230, 210, 0.2);
+      padding-bottom: 2px;
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .btn-ghost:hover {
+      color: var(--sand);
+      border-color: rgba(212, 169, 106, 0.5);
+    }
+
+    /* =============================================
+       SECTIONS SHARED
+       ============================================= */
+    .section { padding: 7rem 0; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: var(--font-d);
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 3.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* =============================================
+       SCROLL ANIMATION
+       ============================================= */
+    .animate-in {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .animate-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =============================================
+       PROJECTS
+       ============================================= */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 52px rgba(180, 100, 30, 0.22),
+                  inset 0 1px 0 rgba(255, 220, 150, 0.12);
+    }
+
+    .project-title {
+      font-family: var(--font-d);
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: -0.01em;
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.75;
+      flex: 1;
+    }
+
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.07em;
+      padding: 0.28rem 0.75rem;
+      border-radius: 50px;
+      background: rgba(201, 123, 47, 0.10);
+      border: 1px solid rgba(201, 123, 47, 0.28);
+      color: var(--amber);
+    }
+
+    .project-links { display: flex; gap: 1.5rem; padding-top: 0.25rem; }
+
+    .project-link {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--sand);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.25s ease;
+    }
+    .project-link:hover { color: var(--gold); }
+
+    .project-link.no-deploy { display: none; }
+
+    /* =============================================
+       SKILLS
+       ============================================= */
+    .skills-wrapper { display: flex; flex-direction: column; gap: 2.5rem; }
+
+    .skill-group-label {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 0.85rem;
+    }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+
+    .chip {
+      font-size: 0.82rem;
+      font-weight: 400;
+      padding: 0.42rem 1.1rem;
+      border-radius: 50px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      color: var(--sand);
+      cursor: default;
+      transition: background 0.25s ease, border-color 0.25s ease,
+                  color 0.25s ease, transform 0.25s ease;
+    }
+
+    .chip:hover {
+      background: rgba(201, 123, 47, 0.11);
+      border-color: rgba(201, 123, 47, 0.32);
+      color: var(--cream);
+      transform: translateY(-2px);
+    }
+
+    /* =============================================
+       CONTACT
+       ============================================= */
+    .contact-wrap  { max-width: 600px; margin: 0 auto; }
+    .contact-card  { padding: 3rem; }
+
+    .form-group { margin-bottom: 1.75rem; }
+
+    .form-label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.55rem;
+    }
+
+    .form-field {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: rgba(240, 220, 180, 0.04);
+      border: 1px solid rgba(210, 170, 100, 0.12);
+      border-radius: 10px;
+      color: var(--cream);
+      font-family: var(--font-b);
+      font-size: 0.9rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    .form-field::placeholder { color: rgba(240, 230, 210, 0.22); }
+
+    .form-field:focus {
+      border-color: rgba(232, 192, 120, 0.48);
+      box-shadow: 0 0 0 3px rgba(232, 192, 120, 0.07);
+      background: rgba(240, 220, 180, 0.07);
+    }
+
+    textarea.form-field { resize: vertical; min-height: 130px; }
+
+    .btn-send {
+      width: 100%;
+      padding: 1rem;
+      background: rgba(201, 123, 47, 0.10);
+      border: 1px solid rgba(201, 123, 47, 0.38);
+      border-radius: 50px;
+      color: var(--gold);
+      font-family: var(--font-b);
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s ease, border-color 0.3s ease,
+                  color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-send:hover {
+      background: rgba(201, 123, 47, 0.20);
+      border-color: rgba(232, 192, 120, 0.65);
+      color: var(--cream);
+      transform: translateY(-2px);
+    }
+
+    .contact-alt {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .contact-alt a {
+      color: var(--sand);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(212, 169, 106, 0.3);
+      padding-bottom: 1px;
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .contact-alt a:hover {
+      color: var(--gold);
+      border-color: rgba(232, 192, 120, 0.55);
+    }
+
+    /* =============================================
+       FOOTER
+       ============================================= */
+    footer {
+      padding: 2rem;
+      border-top: 1px solid rgba(210, 170, 100, 0.07);
+    }
+
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+
+    .footer-social { display: flex; gap: 1.1rem; align-items: center; }
+
+    .footer-social a {
+      color: rgba(240, 230, 210, 0.30);
+      transition: color 0.25s ease;
+      display: flex;
+    }
+    .footer-social a:hover { color: var(--sand); }
+
+    /* =============================================
+       KEYFRAMES
+       ============================================= */
+    @keyframes letter-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+
+    /* =============================================
+       RESPONSIVE
+       ============================================= */
+    @media (max-width: 1024px) {
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .section    { padding: 5rem 0; }
+      #hero       { padding: 8rem 1.5rem 4rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .contact-card  { padding: 2rem 1.5rem; }
+      .footer-inner  { flex-direction: column; text-align: center; }
+      .nav-links  { gap: 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links  { gap: 1.1rem; }
+      .nav-link   { font-size: 0.72rem; letter-spacing: 0.07em; }
+      .contact-card { padding: 1.75rem 1.25rem; }
+    }
+  </style>
 </head>
+<body>
 
-<body data-offset="200" data-spy="scroll" data-target=".site-nav-target">
-  <nav class="unslate_co--site-mobile-menu">
-    <div class="close-wrap d-flex">
-      <a class="d-flex ml-auto js-menu-toggle" href="#">
-        <span class="close-label">Cerrar</span>
-        <div class="close-times">
-          <span class="bar1"></span>
-          <span class="bar2"></span>
-        </div>
-      </a>
-    </div>
-    <div class="site-mobile-inner"></div>
-  </nav>
-  <!-- END nav mobile -->
-  <div class="unslate_co--site-wrap">
-    <div class="unslate_co--site-inner">
-      <nav class="unslate_co--site-nav site-nav-target">
-        <div class="container">
-          <div class="row align-items-center justify-content-between text-left">
-            <div class="col-md-5 text-right">
-              <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
-                <li><a class="nav-link" href="index.html#home-section">Home</a></li>
-                <li><a class="nav-link" href="index.html#portfolio-section">Portfolio</a></li>
-                <li><a class="nav-link" href="index.html#about-section">About</a></li>
-              </ul>
-            </div>
-            <div class="site-logo pos-absolute">
-              <a class="unslate_co--site-logo" href="index.html">Juan<span>Dev</span></a>
-            </div>
-            <div class="col-md-5 text-right text-lg-left">
-              <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
-                <li><a class="nav-link" href="index.html#skills-section">Skills</a></li>
-                <li><a class="nav-link" href="index.html#contact-section">Contact</a></li>
-              </ul>
-              <ul class="site-nav-ul-none-onepage text-right d-inline-block d-lg-none">
-                <li><a class="js-menu-toggle" href="#">Menu</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <!-- END nav -->
-      <div class="cover-v1 jarallax" id="home-section" style="background-image: url('images/background-1.jpg');">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-md-7 mx-auto text-center">
-              <h1 class="heading gsap-reveal-hero">
-                <span style="background-color: rgba(0,0,0,0.6); padding: 0.4em 1em; border-radius: 8px; display: inline-block;">
-                  Software Developer
-                </span>
-              </h1>
-              <h2 class="subheading gsap-reveal-hero">
-                <span style="background-color: rgba(0,0,0,0.4); padding: 0.3em 1em; border-radius: 6px; display: inline-block; font-weight: 400;">
-                  Soy Juan Gonzalez — Team Leader & Back-End Developer.
-                </span>
-              </h2>           
-            </div>
-          </div>
-        </div>
-        <a class="mouse-wrap smoothscroll" href="#portfolio-section">
-          <span class="mouse">
-            <span class="scroll"></span>
-          </span>
-          <span class="mouse-label">Desliza</span>
-        </a>
-      </div>
-      <!-- END .cover-v1 -->
-      <div class="unslate_co--section" id="portfolio-section">
-        <div class="container">
-          <h2 class="mr-auto heading-h2"><span class="gsap-reveal">Portfolio</span></h2>
-          <a class="text-white js-filter d-inline-block d-lg-none" href="#">Filter</a>
-          <div class="filter-wrap">
-            <div class="filter ml-auto" id="filters">
-              <a class="active" data-filter="*" href="#">All</a>
-              <a data-filter=".html" href="#">HTML</a>
-              <a data-filter=".css" href="#">CSS</a>
-              <a data-filter=".python" href="#">Python</a>
-              <a data-filter=".flutter" href="#">Flutter</a>
-            </div>
-          </div>
-          <div class="relative">
-            <div class="loader-portfolio-wrap">
-              <div class="loader-portfolio"></div>
-            </div>
-          </div>
-          <div id="portfolio-single-holder"></div>
-          <div class="portfolio-wrapper">
-            <div class="row gutter-isotope-item" id="posts">
-              <div class="item html css col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                <a class="portfolio-item isotope-item gsap-reveal-img" data-id="1" href="pages/portfolio-single-1.html">
-                  <div class="overlay">
-                    <span class="wrap-icon icon-link2"></span>
-                    <div class="portfolio-item-content">
-                      <h3>Web GGfree</h3>
-                      <p>HTML, CSS, PHP, MYSQL</p>
-                    </div>
-                  </div>
-                  <img alt="Images" class="lazyload img-fluid" src="images/GGfree.png" />
-                </a>
-              </div>
-            </div>
-            <!-- Fin porfolio -->
-          </div>
-        </div>
-      </div>
-      <!-- About me -->
-      <div class="unslate_co--section" id="about-section">
-        <div class="container">
-          <div class="section-heading-wrap text-center mb-5">
-            <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Sobre Mi</span></h2>
-            <span class="gsap-reveal">
-              <img alt="divider" src="images/divider.png" width="76" />
-            </span>
-          </div>
-          <div class="row mt-5 justify-content-between">
-            <!-- Imagen de perfil -->
-            <div class="col-lg-7 mb-5 mb-lg-0">
-              <figure class="dotted-bg gsap-reveal-img">
-                <img alt="Image" class="img-fluid" src="images/profile.png" />
-              </figure>
-            </div>
-            <!-- Fin imagen de perfil -->
-            <div class="col-lg-4 pr-lg-5">
-              <h3 class="mb-4 heading-h3"><span class="gsap-reveal">Apasionado y Orientado a Resultados</span></h3>
-              <p class="lead gsap-reveal">Soy <strong>Team Leader</strong> y Software Developer con experiencia
-                en <span style="color: #f04e4e;">Java</span>, <span style="color: #f04e4e;">Python</span>, y sistemas
-                distribuidos.
-                Me especializo en diseñar soluciones escalables y robustas, aplicando
-                buenas prácticas de desarrollo y <span style="color: #f04e4e;">patrones de arquitectura modernos</span>.
-              </p>
-              <p class="mb-4 gsap-reveal">Trabajo de forma colaborativa con equipos multidisciplinarios aplicando
-                <span style="color: #f04e4e;">SCRUM</span>.
-              </p>
-              <p class="gsap-reveal"><a class="btn btn-outline-pill btn-custom-light"
-                  href="https://docs.google.com/document/d/15XZufMNKwIOIgXDGDGy6ZllfpluLB4kcbapCfDsQ0F0/edit?usp=sharing"
-                  target="_blank">Ver mi CV</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- fin about me -->
-      <!-- My skills -->
-      <div class="unslate_co--section section-counter" id="skills-section">
-        <div class="container">
-          <div class="section-heading-wrap text-center mb-5">
-            <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Mis habilidades</span></h2>
-            <span class="gsap-reveal"><img alt="divider" src="images/divider.png" width="76" /></span>
-          </div>
-          <div class="row pt-5">
-            <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
-              <div class="counter-v1 text-center">
-                <span class="number-wrap">
-                  <span class="number number-counter" data-number="80">0</span>
-                  <span class="append-text">%</span>
-                </span>
-                <span class="counter-label">Java</span>
-              </div>
-            </div>
-            <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-              <div class="counter-v1 text-center">
-                <span class="number-wrap">
-                  <span class="number number-counter" data-number="80">0</span>
-                  <span class="append-text">%</span>
-                </span>
-                <span class="counter-label">Python</span>
-              </div>
-            </div>
-            <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-              <div class="counter-v1 text-center">
-                <span class="number-wrap">
-                  <span class="number number-counter" data-number="65">0</span>
-                  <span class="append-text">%</span>
-                </span>
-                <span class="counter-label">HTML/CSS</span>
-              </div>
-            </div>
-            <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-              <div class="counter-v1 text-center">
-                <span class="number-wrap">
-                  <span class="number number-counter" data-number="80">0</span>
-                  <span class="append-text">%</span>
-                </span>
-                <span class="counter-label">Mysql</span>
-              </div>
-            </div>
+  <canvas id="bg-canvas"></canvas>
 
-            <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-              <div class="counter-v1 text-center">
-                <span class="number-wrap">
-                  <span class="number number-counter" data-number="80">0</span>
-                  <span class="append-text">%</span>
-                </span>
-                <span class="counter-label">MongoDB</span>
-              </div>
-            </div>
-            <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-              <div class="counter-v1 text-center">
-                <span class="number-wrap">
-                  <span class="number number-counter" data-number="80">0</span>
-                  <span class="append-text">%</span>
-                </span>
-                <span class="counter-label">Cassandra</span>
-              </div>
-            </div>
-            <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-              <div class="counter-v1 text-center">
-                <span class="number-wrap">
-                  <span class="number number-counter" data-number="75">0</span>
-                  <span class="append-text">%</span>
-                </span>
-                <span class="counter-label">Docker</span>
-              </div>
-            </div>
-          </div>
+  <div id="root">
+
+    <!-- ── NAV ─────────────────────────────────── -->
+    <nav id="main-nav">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">Juan<span>.</span></a>
+        <ul class="nav-links">
+          <li><a href="#projects" class="nav-link">Proyectos</a></li>
+          <li><a href="#skills"   class="nav-link">Skills</a></li>
+          <li><a href="#contact"  class="nav-link">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ── HERO ──────────────────────────────────  -->
+    <section id="hero">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Ciudad de Mendoza, Argentina</p>
+        <h1 class="hero-name">Juan Gonzalez</h1>
+        <p class="hero-tagline">
+          Team Leader &amp; Back-End Developer.
+          Diseño soluciones escalables con Java, Python y arquitecturas distribuidas.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">
+            Ver proyectos
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+              <path d="M6.5 1.5v10M6.5 11.5L3 8M6.5 11.5L10 8"
+                    stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="https://docs.google.com/document/d/15XZufMNKwIOIgXDGDGy6ZllfpluLB4kcbapCfDsQ0F0/edit?usp=sharing"
+             class="btn-ghost" target="_blank" rel="noopener">
+            Ver CV →
+          </a>
         </div>
       </div>
-      <!-- FIN mis habilidades -->
-      <!-- Contact -->
-      <div class="unslate_co--section" id="contact-section">
-        <div class="container">
-          <div class="section-heading-wrap text-center mb-5">
-            <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Contacto</span></h2>
-            <span class="gsap-reveal"><img alt="divider" src="images/divider.png" width="76" /></span>
-          </div>
-          <div class="row justify-content-between">
-            <div class="col-md-6">
-              <form class="form-outline-style-v1" id="contactForm" method="post">
-                <div class="form-group row mb-0">
-                  <div class="col-lg-6 form-group gsap-reveal">
-                    <label for="name">Nombre</label>
-                    <input class="form-control" id="name" name="name" type="text" />
-                  </div>
-                  <div class="col-lg-6 form-group gsap-reveal">
-                    <label for="email">Email</label>
-                    <input class="form-control" id="email" name="email" type="email" />
-                  </div>
-                  <div class="col-lg-12 form-group gsap-reveal">
-                    <label for="message">Escribe tu mensaje...</label>
-                    <textarea class="form-control" cols="30" id="message" name="message" rows="7"></textarea>
-                  </div>
-                </div>
-                <div class="form-group row gsap-reveal">
-                  <div class="col-md-12 d-flex align-items-center">
-                    <input class="btn btn-outline-pill btn-custom-light mr-3" type="submit" value="Enviar Mensaje" />
-                    <span class="submitting"></span>
-                  </div>
-                </div>
-              </form>
-              <div class="mt-4" id="form-message-warning"></div>
-              <div id="form-message-success">
-                Tu mensaje fue enviado, Gracias!
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="contact-info-v1">
-                <div class="gsap-reveal d-block">
-                  <span class="d-block contact-info-label">Email</span>
-                  <a class="contact-info-val" href="#">juaniiiii1025@gmail.com</a>
-                </div>
-                <div class="gsap-reveal d-block">
-                  <span class="d-block contact-info-label">Telefono</span>
-                  <a class="contact-info-val" href="#">+54 2622-699134</a>
-                </div>
-                <div class="gsap-reveal d-block">
-                  <span class="d-block contact-info-label">Direccion</span>
-                  <address class="contact-info-val">Ciudad de Mendoza <br /> Mendoza - Argentina</address>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- END .unslate_co-site-inner -->
-    <footer class="unslate_co--footer unslate_co--section">
+    </section>
+
+    <!-- ── PROJECTS ──────────────────────────────  -->
+    <section id="projects" class="section">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-7">
-            <div class="footer-site-logo"><a href="#">Juan<span>Dev</span></a></div>
-            <ul class="footer-site-social">
-              <li><a href="https://www.linkedin.com/in/juan-gonzalez-28954b286/" target="_blank">Linkedin</a></li>
-            </ul>
-            <p class="site-copyright">
-              <script>
-                document.write(new Date().getFullYear());
-              </script> Todos los derechos reservados © | Juan Gonzalez
+        <p  class="section-label animate-in">Trabajo</p>
+        <h2 class="section-title animate-in">Proyectos</h2>
+        <div class="projects-grid">
+
+          <article class="glass project-card animate-in">
+            <h3 class="project-title">Web GGfree</h3>
+            <p class="project-desc">
+              Plataforma web completa con gestión de usuarios y contenido.
+              Backend PHP con base de datos relacional MySQL y diseño responsive.
+            </p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">PHP</span>
+              <span class="tag">MySQL</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link no-deploy" target="_blank" rel="noopener">Ver proyecto →</a>
+              <a href="#" class="project-link" target="_blank" rel="noopener">GitHub →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SKILLS ────────────────────────────────  -->
+    <section id="skills" class="section">
+      <div class="container">
+        <p  class="section-label animate-in">Stack</p>
+        <h2 class="section-title animate-in">Tecnologías</h2>
+        <div class="skills-wrapper">
+
+          <div class="animate-in">
+            <p class="skill-group-label">Backend</p>
+            <div class="chips">
+              <span class="chip">Java</span>
+              <span class="chip">Python</span>
+              <span class="chip">Spring Boot</span>
+              <span class="chip">REST APIs</span>
+              <span class="chip">Microservicios</span>
+            </div>
+          </div>
+
+          <div class="animate-in">
+            <p class="skill-group-label">Bases de Datos</p>
+            <div class="chips">
+              <span class="chip">MySQL</span>
+              <span class="chip">MongoDB</span>
+              <span class="chip">Cassandra</span>
+              <span class="chip">PostgreSQL</span>
+            </div>
+          </div>
+
+          <div class="animate-in">
+            <p class="skill-group-label">Tools &amp; Proceso</p>
+            <div class="chips">
+              <span class="chip">Docker</span>
+              <span class="chip">Git</span>
+              <span class="chip">SCRUM</span>
+              <span class="chip">Linux</span>
+              <span class="chip">CI/CD</span>
+            </div>
+          </div>
+
+          <div class="animate-in">
+            <p class="skill-group-label">Frontend</p>
+            <div class="chips">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">Flutter</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ───────────────────────────────  -->
+    <section id="contact" class="section">
+      <div class="container">
+        <p  class="section-label animate-in" style="text-align:center">Hablemos</p>
+        <h2 class="section-title animate-in" style="text-align:center">Contacto</h2>
+        <div class="contact-wrap">
+          <div class="glass contact-card animate-in">
+            <form id="contact-form" novalidate>
+              <div class="form-group">
+                <label class="form-label" for="f-name">Nombre</label>
+                <input class="form-field" id="f-name" name="name"
+                       type="text" placeholder="Tu nombre" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-email">Email</label>
+                <input class="form-field" id="f-email" name="email"
+                       type="email" placeholder="tu@email.com" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-msg">Mensaje</label>
+                <textarea class="form-field" id="f-msg" name="message"
+                          placeholder="Tu mensaje..." required></textarea>
+              </div>
+              <button class="btn-send" type="submit">Enviar Mensaje</button>
+            </form>
+            <p class="contact-alt">
+              O escríbeme directo a
+              <a href="mailto:juaniiiii1025@gmail.com">juaniiiii1025@gmail.com</a>
             </p>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- ── FOOTER ────────────────────────────────  -->
+    <footer>
+      <div class="footer-inner">
+        <p class="footer-copy">
+          © <span id="yr"></span> Juan González — Hecho con ♥ en Mendoza
+        </p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/juan-gonzalez-28954b286/"
+             target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="https://github.com/"
+             target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+          </a>
+        </div>
+      </div>
     </footer>
-  </div>
-  <!-- Loader -->
-  <div id="unslate_co--overlayer"></div>
-  <div class="site-loader-wrap">
-    <div class="site-loader"></div>
-  </div>
-  <script src="js/scripts-dist.js"></script>
-  <script src="js/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" type="text/javascript">
-  </script>
-  <script type="text/javascript">
-    (function () {
-      emailjs.init({
-        publicKey: "M4R44Uu31tNO-8sTR",
+
+  </div><!-- #root -->
+
+  <script>
+    /* =============================================
+       CANVAS — ANIMATED BLOB BACKGROUND
+       ============================================= */
+    !function () {
+      var canvas = document.getElementById('bg-canvas');
+      var ctx    = canvas.getContext('2d');
+      var W, H;
+
+      /* Each blob: normalized position, radius, phase offsets, speed, RGB */
+      var blobs = [
+        { x:.15, y:.25, r:.32, ox:0.0, oy:1.3, sp:.000250, cr:201, cg: 90, cb:30 },
+        { x:.75, y:.55, r:.28, ox:2.1, oy:0.7, sp:.000180, cr:160, cg: 60, cb:30 },
+        { x:.50, y:.80, r:.22, ox:4.0, oy:2.5, sp:.000320, cr:232, cg:155, cb:55 },
+        { x:.88, y:.15, r:.20, ox:1.5, oy:5.0, sp:.000150, cr:180, cg: 88, cb:38 },
+        { x:.05, y:.70, r:.18, ox:3.3, oy:0.4, sp:.000280, cr:210, cg:115, cb:48 },
+      ];
+
+      function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+      }
+
+      function draw(t) {
+        ctx.clearRect(0, 0, W, H);
+        blobs.forEach(function (b) {
+          /* Organic drift via sin/cos with different phase offsets */
+          var bx = (b.x + 0.09 * Math.sin(t * b.sp + b.ox)) * W;
+          var by = (b.y + 0.07 * Math.cos(t * b.sp + b.oy)) * H;
+          var br =  b.r * Math.min(W, H);
+
+          var g = ctx.createRadialGradient(bx, by, 0, bx, by, br);
+          var c = 'rgba(' + b.cr + ',' + b.cg + ',' + b.cb + ',';
+          g.addColorStop(0,   c + '0.32)');
+          g.addColorStop(0.5, c + '0.10)');
+          g.addColorStop(1,   c + '0)');
+
+          ctx.fillStyle = g;
+          ctx.beginPath();
+          ctx.arc(bx, by, br, 0, 6.2832);
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+      requestAnimationFrame(draw);
+    }();
+
+    /* =============================================
+       HERO — LETTER-BY-LETTER ANIMATION
+       ============================================= */
+    !function () {
+      var el   = document.querySelector('.hero-name');
+      var text = el.textContent;
+      el.innerHTML = '';
+      var delay = 0.42;
+
+      text.split('').forEach(function (ch) {
+        if (ch === ' ') {
+          el.appendChild(document.createTextNode(' '));
+        } else {
+          var s = document.createElement('span');
+          s.className = 'hero-letter';
+          s.textContent = ch;
+          s.style.animationDelay = delay + 's';
+          el.appendChild(s);
+          delay += 0.055;
+        }
       });
-    })();
+    }();
+
+    /* =============================================
+       SCROLL — INTERSECTION OBSERVER FADE-IN
+       ============================================= */
+    !function () {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.animate-in').forEach(function (el) {
+        var parent = el.parentElement;
+        var sibs   = Array.from(parent.querySelectorAll(':scope > .animate-in'));
+        var idx    = sibs.indexOf(el);
+        if (idx > 0) el.style.transitionDelay = (idx * 0.13) + 's';
+        io.observe(el);
+      });
+    }();
+
+    /* =============================================
+       NAV — GLASS ON SCROLL
+       ============================================= */
+    !function () {
+      var nav = document.getElementById('main-nav');
+      window.addEventListener('scroll', function () {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
+    }();
+
+    /* =============================================
+       CONTACT FORM → MAILTO
+       ============================================= */
+    !function () {
+      document.getElementById('contact-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name  = document.getElementById('f-name').value.trim();
+        var email = document.getElementById('f-email').value.trim();
+        var msg   = document.getElementById('f-msg').value.trim();
+        if (!name || !email || !msg) return;
+        var subject = encodeURIComponent('Contacto desde portfolio — ' + name);
+        var body    = encodeURIComponent(
+          'Nombre: ' + name + '\nEmail: ' + email + '\n\n' + msg
+        );
+        window.location.href =
+          'mailto:juaniiiii1025@gmail.com?subject=' + subject + '&body=' + body;
+      });
+    }();
+
+    /* =============================================
+       FOOTER YEAR
+       ============================================= */
+    document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
-
 </body>
-
 </html>
