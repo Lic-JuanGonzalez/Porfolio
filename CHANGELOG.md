@@ -8,6 +8,14 @@ All notable changes to this project are documented here.
 
 ---
 
+## [3.3.0] — 2026-05-30
+
+### Fixed
+- Nav links grouped with controls into `.nav-right` div — logo left, everything else right (was `space-between` on 3 items causing center-gap on wide screens)
+- Nav underline hover dot artifact removed — replaced `left/right: 50%` approach with `transform: scaleX(0/1)` which has no subpixel rendering artifact
+
+---
+
 ## [3.2.0] — 2026-05-30
 
 ### Added
