@@ -295,6 +295,42 @@ nav.scrolled {
 /* =============================================
    PROJECTS
    ============================================= */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  font-family: var(--font-b);
+  font-size: 0.82rem;
+  font-weight: 400;
+  padding: 0.42rem 1.1rem;
+  border-radius: 50px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  color: var(--sand);
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease,
+              color 0.25s ease, transform 0.25s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(201, 123, 47, 0.11);
+  border-color: rgba(201, 123, 47, 0.32);
+  color: var(--cream);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: rgba(201, 123, 47, 0.2);
+  border-color: var(--amber);
+  color: var(--gold);
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
