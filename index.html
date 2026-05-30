@@ -21,25 +21,44 @@
       <div class="nav-inner">
         <a href="#hero" class="nav-logo">Juan<span>.</span></a>
         <ul class="nav-links">
-          <li><a href="#projects" class="nav-link">Proyectos</a></li>
-          <li><a href="#skills"   class="nav-link">Skills</a></li>
-          <li><a href="#contact"  class="nav-link">Contacto</a></li>
+          <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Proyectos</a></li>
+          <li><a href="#skills"   class="nav-link" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="#contact"  class="nav-link" data-i18n="nav.contact">Contacto</a></li>
         </ul>
+        <div class="nav-controls">
+          <button id="lang-toggle" class="nav-ctrl-btn" aria-label="Switch language">EN</button>
+          <button id="theme-toggle" class="nav-ctrl-btn" aria-label="Toggle theme">
+            <svg id="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </nav>
 
     <!-- ── HERO ──────────────────────────────────  -->
     <section id="hero">
       <div class="hero-inner">
-        <p class="hero-eyebrow">Ciudad de Mendoza, Argentina</p>
+        <p class="hero-eyebrow" data-i18n="hero.eyebrow">Ciudad de Mendoza, Argentina</p>
         <h1 class="hero-name">Juan Gonzalez</h1>
-        <p class="hero-tagline">
+        <p class="hero-tagline" data-i18n-html="hero.tagline">
           Team Leader — Research &amp; Development<br />
           Diseño soluciones escalables con Java, Python y arquitecturas distribuidas.
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn-primary">
-            Ver proyectos
+            <span data-i18n="hero.cta">Ver proyectos</span>
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
               <path d="M6.5 1.5v10M6.5 11.5L3 8M6.5 11.5L10 8"
                     stroke="currentColor" stroke-width="1.5"
@@ -47,7 +66,7 @@
             </svg>
           </a>
           <a href="https://docs.google.com/document/d/15XZufMNKwIOIgXDGDGy6ZllfpluLB4kcbapCfDsQ0F0/edit?usp=sharing"
-             class="btn-ghost" target="_blank" rel="noopener">
+             class="btn-ghost" target="_blank" rel="noopener" data-i18n="hero.cv">
             Ver CV →
           </a>
         </div>
@@ -57,14 +76,14 @@
     <!-- ── PROJECTS ──────────────────────────────  -->
     <section id="projects" class="section">
       <div class="container">
-        <p  class="section-label animate-in">Trabajo</p>
-        <h2 class="section-title animate-in">Proyectos</h2>
+        <p  class="section-label animate-in" data-i18n="projects.label">Trabajo</p>
+        <h2 class="section-title animate-in" data-i18n="projects.title">Proyectos</h2>
         <div class="filter-bar animate-in"></div>
         <div class="projects-grid">
 
           <article class="glass project-card animate-in">
             <h3 class="project-title">Web GGfree</h3>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="project.ggfree.desc">
               Plataforma web completa con gestión de usuarios y contenido.
               Backend PHP con base de datos relacional MySQL y diseño responsive.
             </p>
@@ -75,14 +94,14 @@
               <span class="tag">MySQL</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link no-deploy" target="_blank" rel="noopener">Ver proyecto →</a>
+              <a href="#" class="project-link no-deploy" target="_blank" rel="noopener" data-i18n="project.view">Ver proyecto →</a>
               <a href="https://github.com/Lic-JuanGonzalez/Carrito_GGFree" class="project-link" target="_blank" rel="noopener">GitHub →</a>
             </div>
           </article>
 
           <article class="glass project-card animate-in">
             <h3 class="project-title">Neural Network ColorWarm</h3>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="project.neural.desc">
               Red neuronal entrenada desde cero para clasificar puntos en círculos
               concéntricos, con visualización en tiempo real de la frontera de
               decisión y curva de loss.
@@ -94,14 +113,14 @@
               <span class="tag">GUI</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link no-deploy" target="_blank" rel="noopener">Ver proyecto →</a>
+              <a href="#" class="project-link no-deploy" target="_blank" rel="noopener" data-i18n="project.view">Ver proyecto →</a>
               <a href="https://github.com/Lic-JuanGonzalez/Training_NeuralNetwork_ColorWarm" class="project-link" target="_blank" rel="noopener">GitHub →</a>
             </div>
           </article>
 
           <article class="glass project-card animate-in">
             <h3 class="project-title">To-do List Django</h3>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="project.todo.desc">
               Gestor de tareas web con autenticación de usuarios, CRUD completo
               y búsqueda por título. Cada usuario ve solo sus propias tareas.
             </p>
@@ -113,7 +132,7 @@
               <span class="tag">CSS</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link no-deploy" target="_blank" rel="noopener">Ver proyecto →</a>
+              <a href="#" class="project-link no-deploy" target="_blank" rel="noopener" data-i18n="project.view">Ver proyecto →</a>
               <a href="https://github.com/Lic-JuanGonzalez/To-do-List-Django" class="project-link" target="_blank" rel="noopener">GitHub →</a>
             </div>
           </article>
@@ -126,7 +145,7 @@
     <section id="skills" class="section">
       <div class="container">
         <p  class="section-label animate-in">Stack</p>
-        <h2 class="section-title animate-in">Tecnologías</h2>
+        <h2 class="section-title animate-in" data-i18n="skills.title">Tecnologías</h2>
         <div class="skills-wrapper">
 
           <div class="animate-in">
@@ -141,7 +160,7 @@
           </div>
 
           <div class="animate-in">
-            <p class="skill-group-label">Bases de Datos</p>
+            <p class="skill-group-label" data-i18n="skills.databases">Bases de Datos</p>
             <div class="chips">
               <span class="chip">MySQL</span>
               <span class="chip">MongoDB</span>
@@ -151,7 +170,7 @@
           </div>
 
           <div class="animate-in">
-            <p class="skill-group-label">Tools &amp; Proceso</p>
+            <p class="skill-group-label" data-i18n="skills.tools">Tools &amp; Proceso</p>
             <div class="chips">
               <span class="chip">Docker</span>
               <span class="chip">Git</span>
@@ -178,30 +197,33 @@
     <!-- ── CONTACT ───────────────────────────────  -->
     <section id="contact" class="section">
       <div class="container">
-        <p  class="section-label animate-in" style="text-align:center">Hablemos</p>
-        <h2 class="section-title animate-in" style="text-align:center">Contacto</h2>
+        <p  class="section-label animate-in" style="text-align:center" data-i18n="contact.label">Hablemos</p>
+        <h2 class="section-title animate-in" style="text-align:center" data-i18n="contact.title">Contacto</h2>
         <div class="contact-wrap">
           <div class="glass contact-card animate-in">
             <form id="contact-form" novalidate>
               <div class="form-group">
-                <label class="form-label" for="f-name">Nombre</label>
+                <label class="form-label" for="f-name" data-i18n="contact.name">Nombre</label>
                 <input class="form-field" id="f-name" name="name"
-                       type="text" placeholder="Tu nombre" required />
+                       type="text" placeholder="Tu nombre"
+                       data-i18n-placeholder="contact.name.placeholder" required />
               </div>
               <div class="form-group">
                 <label class="form-label" for="f-email">Email</label>
                 <input class="form-field" id="f-email" name="email"
-                       type="email" placeholder="tu@email.com" required />
+                       type="email" placeholder="tu@email.com"
+                       data-i18n-placeholder="contact.email.placeholder" required />
               </div>
               <div class="form-group">
-                <label class="form-label" for="f-msg">Mensaje</label>
+                <label class="form-label" for="f-msg" data-i18n="contact.message">Mensaje</label>
                 <textarea class="form-field" id="f-msg" name="message"
-                          placeholder="Tu mensaje..." required></textarea>
+                          placeholder="Tu mensaje..."
+                          data-i18n-placeholder="contact.msg.placeholder" required></textarea>
               </div>
-              <button class="btn-send" type="submit">Enviar Mensaje</button>
+              <button class="btn-send" type="submit" data-i18n="contact.send">Enviar Mensaje</button>
             </form>
             <p class="contact-alt">
-              O escríbeme directo a
+              <span data-i18n="contact.alt">O escríbeme directo a</span>
               <a href="mailto:lic.gonzalezjuan23@gmail.com">lic.gonzalezjuan23@gmail.com</a>
             </p>
           </div>
@@ -234,6 +256,8 @@
 
   </div><!-- #root -->
 
+  <script src="js/theme.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/filter.js"></script>
   <script src="js/canvas.js"></script>
   <script src="js/hero.js"></script>

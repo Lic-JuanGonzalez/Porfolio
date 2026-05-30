@@ -22,6 +22,42 @@
   --max-w:  1100px;
 }
 
+/* =============================================
+   LIGHT THEME
+   ============================================= */
+html[data-theme="light"] {
+  --bg:          #F5EDE0;
+  --sand:        #7a4010;
+  --cream:       #1a0a02;
+  --gold:        #8B5A0A;
+  --muted:       rgba(26, 10, 2, 0.52);
+  --glass-bg:    rgba(201, 123, 47, 0.09);
+  --glass-border:rgba(160, 82, 45, 0.22);
+  --glass-shadow:0 8px 32px rgba(160, 82, 45, 0.12),
+                 inset 0 1px 0 rgba(255, 200, 120, 0.12);
+}
+
+html[data-theme="light"] nav.scrolled {
+  background: rgba(245, 237, 224, 0.85);
+}
+
+html[data-theme="light"] #bg-canvas { opacity: 0.35; }
+
+html[data-theme="light"] .form-field {
+  background: rgba(201, 123, 47, 0.05);
+  border-color: rgba(160, 82, 45, 0.15);
+  color: var(--cream);
+}
+
+html[data-theme="light"] .form-field::placeholder { color: rgba(26, 10, 2, 0.28); }
+
+html[data-theme="light"] .form-field:focus {
+  background: rgba(201, 123, 47, 0.09);
+  border-color: rgba(160, 82, 45, 0.4);
+}
+
+html[data-theme="light"] .footer-social a { color: rgba(26, 10, 2, 0.25); }
+
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
 body {
@@ -150,6 +186,36 @@ nav.scrolled {
 .nav-link:hover             { color: var(--cream); }
 .nav-link:hover::after      { left: 0; right: 0; }
 
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-ctrl-btn {
+  background: none;
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  color: var(--sand);
+  font-family: var(--font-b);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.nav-ctrl-btn:hover {
+  color: var(--cream);
+  border-color: rgba(210, 170, 100, 0.4);
+}
+
+#theme-toggle { padding: 0.3rem 0.6rem; }
+
 /* =============================================
    HERO
    ============================================= */
@@ -257,7 +323,7 @@ nav.scrolled {
 /* =============================================
    SECTIONS SHARED
    ============================================= */
-.section { padding: 7rem 0; }
+.section { padding: 7rem 0; scroll-margin-top: 5rem; }
 
 .section-label {
   font-size: 0.72rem;
@@ -582,4 +648,7 @@ footer {
   .nav-links  { gap: 1.1rem; }
   .nav-link   { font-size: 0.72rem; letter-spacing: 0.07em; }
   .contact-card { padding: 1.75rem 1.25rem; }
+  .nav-controls { gap: 0.5rem; }
+  .nav-ctrl-btn { padding: 0.25rem 0.55rem; font-size: 0.68rem; }
+  #theme-toggle { padding: 0.25rem 0.45rem; }
 }
