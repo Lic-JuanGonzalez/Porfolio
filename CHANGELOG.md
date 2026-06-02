@@ -8,6 +8,15 @@ All notable changes to this project are documented here.
 
 ---
 
+## [3.4.0] — 2026-06-01
+
+### Fixed
+- Nav collapses at 360px — new `≤400px` breakpoint reduces padding, gaps, font-sizes and logo size so all items fit without overflow
+- Hero name ("Juan Gonzalez") breaks across two lines at 360px — capped at `2.8rem` for `≤400px`
+- Footer social icons barely visible — opacity `0.30 → 0.55`
+
+---
+
 ## [3.3.0] — 2026-05-30
 
 ### Fixed

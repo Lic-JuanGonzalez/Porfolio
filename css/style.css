@@ -613,7 +613,7 @@ footer {
 .footer-social { display: flex; gap: 1.1rem; align-items: center; }
 
 .footer-social a {
-  color: rgba(240, 230, 210, 0.30);
+  color: rgba(240, 230, 210, 0.55);
   transition: color 0.25s ease;
   display: flex;
 }
@@ -658,4 +658,17 @@ footer {
   .nav-controls { gap: 0.5rem; }
   .nav-ctrl-btn { padding: 0.25rem 0.55rem; font-size: 0.68rem; }
   #theme-toggle { padding: 0.25rem 0.45rem; }
+}
+
+@media (max-width: 400px) {
+  nav         { padding: 1rem 1rem; }
+  .nav-right  { gap: 0.75rem; }
+  .nav-links  { gap: 0.5rem; }
+  .nav-link   { font-size: 0.62rem; letter-spacing: 0.02em; }
+  .nav-controls { gap: 0.3rem; }
+  .nav-ctrl-btn { padding: 0.2rem 0.45rem; font-size: 0.62rem; }
+  #theme-toggle { padding: 0.2rem 0.38rem; }
+  .nav-logo   { font-size: 1.1rem; }
+  .hero-name  { font-size: 2.8rem; }
+  .footer-social { justify-content: center; }
 }
