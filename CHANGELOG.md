@@ -8,6 +8,13 @@ All notable changes to this project are documented here.
 
 ---
 
+## [3.4.1] — 2026-06-06
+
+### Fixed
+- "Microservicios" chip missing `data-i18n` attribute — now translates to "Microservices" when switching to EN
+
+---
+
 ## [3.4.0] — 2026-06-01
 
 ### Fixed
