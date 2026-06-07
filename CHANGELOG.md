@@ -8,6 +8,13 @@ All notable changes to this project are documented here.
 
 ---
 
+## [3.5.0] — 2026-06-07
+
+### Added
+- **Inventory Manager** project card — multi-branch enterprise inventory system (Java 21, Spring Boot 3.2, React 18, PostgreSQL 16, Docker). JWT auth with roles, inter-branch transfers with approval workflow, full audit trail.
+
+---
+
 ## [3.4.1] — 2026-06-06
 
 ### Fixed
