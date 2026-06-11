@@ -8,6 +8,13 @@ All notable changes to this project are documented here.
 
 ---
 
+## [3.6.0] — 2026-06-11
+
+### Added
+- **Reservation Platform** project card — multi-tenant SaaS for reservation management (Python 3.13, FastAPI, React 18, PostgreSQL 16, Docker). Clean Architecture + DDD + CQRS, async processing with Celery/Redis, monitoring with Prometheus and Grafana.
+
+---
+
 ## [3.5.0] — 2026-06-07
 
 ### Added
