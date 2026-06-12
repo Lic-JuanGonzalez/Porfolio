@@ -4,10 +4,6 @@ All notable changes to this project are documented here.
 
 ---
 
-## [Unreleased]
-
----
-
 ## [3.6.0] — 2026-06-11
 
 ### Added
