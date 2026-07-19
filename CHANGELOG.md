@@ -4,6 +4,13 @@ All notable changes to this project are documented here.
 
 ---
 
+## [3.7.0] — 2026-07-19
+
+### Added
+- **Professional Services Marketplace** project card — marketplace for hiring professionals and leaving reviews (Java 21, Spring Boot 3.2, React, PostgreSQL 16, Docker). State-machine-enforced hire flow, auto-computed ratings, admin-gated test console.
+
+---
+
 ## [3.6.0] — 2026-06-11
 
 ### Added
