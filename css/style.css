@@ -432,6 +432,19 @@ nav.scrolled {
   letter-spacing: -0.01em;
 }
 
+.project-header { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+
+.badge-final {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.6rem;
+  border-radius: 50px;
+  background: var(--gold);
+  color: #2a1500;
+}
+
 .project-desc {
   font-size: 0.88rem;
   color: var(--muted);
