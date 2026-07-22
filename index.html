@@ -24,6 +24,7 @@
           <ul class="nav-links">
             <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Proyectos</a></li>
             <li><a href="#skills"   class="nav-link" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="#articles" class="nav-link" data-i18n="nav.articles">Artículos</a></li>
             <li><a href="#contact"  class="nav-link" data-i18n="nav.contact">Contacto</a></li>
           </ul>
           <div class="nav-controls">
@@ -220,6 +221,26 @@
             </div>
           </article>
 
+          <article class="glass project-card animate-in">
+            <h3 class="project-title">Digit Recognizer</h3>
+            <p class="project-desc" data-i18n="project.digitrecognizer.desc">
+              Reconocimiento de dígitos manuscritos en tiempo real: dibujás en un canvas HTML5 y una CNN
+              entrenada con MNIST clasifica el trazo. Preprocesamiento replica el pipeline de MNIST
+              (recorte al bounding box, reescalado y centrado en 28x28) antes de pasar por el modelo.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">HTML5 Canvas</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link no-deploy" target="_blank" rel="noopener" data-i18n="project.view">Ver proyecto →</a>
+              <a href="https://github.com/Lic-JuanGonzalez/digit-recognizer" class="project-link" target="_blank" rel="noopener">GitHub →</a>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -272,6 +293,50 @@
               <span class="chip">Flutter</span>
             </div>
           </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ARTICLES ──────────────────────────────  -->
+    <section id="articles" class="section">
+      <div class="container">
+        <p  class="section-label animate-in" data-i18n="articles.label">Escritura</p>
+        <h2 class="section-title animate-in" data-i18n="articles.title">Artículos</h2>
+        <p class="section-subtitle animate-in" data-i18n="articles.subtitle">
+          Ensayos sobre programación asistida por IA, todavía sin publicar en LinkedIn.
+        </p>
+        <div class="articles-grid">
+
+          <article class="glass article-card animate-in">
+            <div class="article-header">
+              <h3 class="project-title" data-i18n="article.1.title">Programar sin código: el lenguaje natural como el nuevo lenguaje de programación</h3>
+              <span class="badge-final" data-i18n="articles.soon">Próximamente en LinkedIn</span>
+            </div>
+            <p class="project-desc" data-i18n="article.1.desc">
+              Durante siete décadas programar significó aprender una sintaxis artificial. La hipótesis: la próxima capa de programación es el lenguaje natural mismo, mediado por LLMs.
+            </p>
+          </article>
+
+          <article class="glass article-card animate-in">
+            <div class="article-header">
+              <h3 class="project-title" data-i18n="article.2.title">Prompt engineering como nueva sintaxis</h3>
+              <span class="badge-final" data-i18n="articles.soon">Próximamente en LinkedIn</span>
+            </div>
+            <p class="project-desc" data-i18n="article.2.desc">
+              Si el lenguaje natural es la nueva interfaz de programación, ¿está emergiendo dentro de él una sintaxis propia que separa un prompt efectivo de uno que no lo es?
+            </p>
+          </article>
+
+          <article class="glass article-card animate-in">
+            <div class="article-header">
+              <h3 class="project-title" data-i18n="article.3.title">Ambigüedad como bug</h3>
+              <span class="badge-final" data-i18n="articles.soon">Próximamente en LinkedIn</span>
+            </div>
+            <p class="project-desc" data-i18n="article.3.desc">
+              Un compilador rechaza un programa ambiguo antes de ejecutarlo. El lenguaje natural no: la misma consigna admite lecturas distintas y "compila" igual, sin señalizar la duda.
+            </p>
+          </article>
 
         </div>
       </div>

@@ -351,6 +351,15 @@ nav.scrolled {
   letter-spacing: -0.01em;
 }
 
+.section-subtitle {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: -2.5rem;
+  margin-bottom: 3.5rem;
+  max-width: 46rem;
+}
+
 /* =============================================
    SCROLL ANIMATION
    ============================================= */
@@ -478,6 +487,31 @@ nav.scrolled {
 .project-link:hover { color: var(--gold); }
 
 .project-link.no-deploy { display: none; }
+
+/* =============================================
+   ARTICLES
+   ============================================= */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.article-card {
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 52px rgba(180, 100, 30, 0.22),
+              inset 0 1px 0 rgba(255, 220, 150, 0.12);
+}
+
+.article-header { display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem; }
 
 /* =============================================
    SKILLS
@@ -649,11 +683,13 @@ footer {
    RESPONSIVE
    ============================================= */
 @media (max-width: 900px) {
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid,
+  .articles-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 600px) {
-  .projects-grid { grid-template-columns: 1fr; }
+  .projects-grid,
+  .articles-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
