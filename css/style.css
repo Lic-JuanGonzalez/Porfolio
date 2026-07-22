@@ -493,7 +493,8 @@ nav.scrolled {
    ============================================= */
 .articles-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
+  max-width: 32rem;
   gap: 1.5rem;
 }
 
@@ -683,13 +684,11 @@ footer {
    RESPONSIVE
    ============================================= */
 @media (max-width: 900px) {
-  .projects-grid,
-  .articles-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 600px) {
-  .projects-grid,
-  .articles-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
