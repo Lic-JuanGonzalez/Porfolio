@@ -512,8 +512,6 @@ nav.scrolled {
               inset 0 1px 0 rgba(255, 220, 150, 0.12);
 }
 
-.article-header { display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem; }
-
 /* =============================================
    SKILLS
    ============================================= */
